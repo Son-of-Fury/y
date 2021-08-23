@@ -78,7 +78,23 @@ bot.on("message", async (message) => {
     }
 
     if(cmd === `${prefix}botinfo`){
-        let parancsEmbed = new Discord.MessageEmbed()
+        let infoEmbed = new Discord.MessageEmbed()
+        .setColor("RED")
+        .setTitle("Bot információk:")
+        .addField("A botot készítette:", "Son of Fury")
+        .addField("A botot tesztelte:", "Aklime, Son of Fury, KBence")
+        .addField("A bot help parancsa:", "?help")
+        .setThumbnail(message.author.displayAvatarURL())
+        .setDescription(`Prefix: \`${prefix}\``)
+        .setFooter("[HUN] Gamer Community | Készítő: Son of Fury")
+        .setTimestamp()
+
+        message.channel.send(infoEmbed)
+
+    }
+
+    if(cmd === `${prefix}help`){
+        let helpEmbed = new Discord.MessageEmbed()
         .setColor("RED")
         .setTitle("Bot Parancsai:")
         .addField("Moderáció Parancsok:", "?ban, ?kick, ?report, ?mute, ?warn, ?clear" )
@@ -86,14 +102,14 @@ bot.on("message", async (message) => {
         .addField("Fun Parancsok:","?meme, ?cica, ?kutya, ?ship, ?számológép, ?szavazás, ?nyereményjáték, ?8ball")
         .addField("Egyéb Parancsok:", "?weather, ?szavazás, ?teszt, ?este, ?reggel, ?nappal, ?alkohol, ?drog")
         .setThumbnail(message.author.displayAvatarURL())
-        .setDescription(`\`${prefix}\``)
+        .setDescription(`Prefix: \`${prefix}\``)
         .setFooter("[HUN] Gamer Community | Készítő: Son of Fury")
         .setTimestamp()
 
-        message.channel.send(parancsEmbed)
+        message.channel.send(helpEmbed)
 
     }
-
+    
     if(cmd === `${prefix}este`){
         let esteEmbed = new Discord.MessageEmbed()
         .setColor("BLUE")
